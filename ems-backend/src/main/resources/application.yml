@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/ems"
+    username: "postgres"
+    password: "2017469049"
+
+  # Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+
+# Logging
+logging:
+  level:
+    root: info
