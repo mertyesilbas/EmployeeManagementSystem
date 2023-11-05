@@ -1,69 +1,114 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@layer components {
+  .card {
+    color: theme("colors.bright_black");
+    @apply relative rounded-lg border border-slate-400 bg-white p-6 shadow-xl;
+  }
+  .button {
+    @apply h-8 w-24 rounded-md px-4 text-white shadow-md;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+  .headerlink {
+    @apply flex h-10 w-10 content-center justify-center rounded-full pt-0.5;
+  }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  .tdcustom {
+    @apply border-b p-4 text-left;
+  }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
+  .btnapply {
+    align-items: center;
     background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family:
+      system-ui,
+      -apple-system,
+      system-ui,
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: 150px;
+    margin-top: 15px;
   }
-  a:hover {
-    color: #747bff;
+
+  .btnapply:hover,
+  .btnapply:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
   }
-  button {
-    background-color: #f9f9f9;
+  .btnapply:hover {
+    transform: translateY(-1px);
   }
+  .btnapply:active {
+    background-color: #f0f0f1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+  }
+
+  select {
+    appearance: none;
+    outline: 10px red;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: rgb(44, 40, 40);
+    background-color: rgba(44, 62, 80, 0.13);
+    background-image: none;
+    cursor: pointer;
+  }
+
+  .selectdrp::-ms-expand{
+    display: none;
+  }
+
+  .selectdrp {
+    position: relative;
+    display: flex;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+
+  .selectdrp::after {
+    font-size: xx-small;
+    content: '\25BC';
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 1.2em;
+    background-color: rgba(52, 73, 94, 0.68);
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+
+  .selectdrp:hover::after{
+    color: #f39c12;
+  }
+
 }

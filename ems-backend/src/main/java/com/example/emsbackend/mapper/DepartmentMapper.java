@@ -5,7 +5,7 @@ import com.example.emsbackend.entity.Department;
 
 public class DepartmentMapper
     {
-    // Entity to DTO
+    // ENTITY TO DTO
     public static DepartmentDto mapToDepartmentDto(Department department)
         {
         return new DepartmentDto(
@@ -15,7 +15,7 @@ public class DepartmentMapper
         );
         }
 
-    // DTO to Entity
+    // DTO TO ENTITY
     public static Department mapToDepartment(DepartmentDto departmentDto)
         {
         return new Department(

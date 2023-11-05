@@ -1,29 +1,30 @@
 package com.example.emsbackend.mapper;
 
 import com.example.emsbackend.dto.EmployeeDto;
+import com.example.emsbackend.entity.Department;
 import com.example.emsbackend.entity.Employee;
 
 public class EmployeeMapper
     {
     public static EmployeeDto mapToEmployeeDto(Employee employee)
         {
-        EmployeeDto employeeDto = new EmployeeDto();
-        employeeDto.setId(employee.getId());
-        employeeDto.setFirstName(employee.getFirstName());
-        employeeDto.setLastName(employee.getLastName());
-        employeeDto.setEmail(employee.getEmail());
-        return employeeDto;
+        return new EmployeeDto(
+                employee.getId(),
+                employee.getFirstName(),
+                employee.getLastName(),
+                employee.getEmail(),
+                employee.getDepartment().getId()
+        );
 
         }
 
     public static Employee mapToEmployee(EmployeeDto employeeDto)
         {
-        return new Employee(
-                employeeDto.getId(),
-                employeeDto.getFirstName(),
-                employeeDto.getLastName(),
-                employeeDto.getEmail()
-        );
+        Employee employee = new Employee();
+        employee.setId(employeeDto.getId());
+        employee.setFirstName(employeeDto.getFirstName());
+        employee.setEmail(employeeDto.getEmail());
+        return employee;
         }
     }
 

@@ -3,8 +3,8 @@ import React from "react";
 function FooterComponent(){
     return(
         <div>
-            <footer className = 'footer'>
-                <span className = 'text-muted'>Creative Common License</span>
+            <footer className = 'w-4'>
+                <span className = ''>Creative Common License</span>
             </footer>
         </div>
     )

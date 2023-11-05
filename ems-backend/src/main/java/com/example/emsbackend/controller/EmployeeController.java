@@ -18,9 +18,9 @@ import java.util.List;
 public class EmployeeController
     {
     private EmployeeService employeeService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
-    // Build add employee REST API
+    /*--------------------CREATE EMPLOYEE START---------------------*/ //CREATE EMPLOYEE
+
     @PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto)
         {
@@ -31,7 +31,10 @@ public class EmployeeController
         );
         }
 
-    // Build get employee by id REST API
+    /*--------------------CREATE EMPLOYEE END---------------------*/
+
+    /*--------------------GET EMPLOYEE BY ID START---------------------*/ // GET EMPLOYEE BY ID
+
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long id)
         {
@@ -42,7 +45,10 @@ public class EmployeeController
         );
         }
 
-    // Build get all employees REST API
+    /*--------------------GET EMPLOYEE BY ID END---------------------*/
+
+    /*--------------------GET ALL EMPLOYEES START---------------------*/ // GET ALL EMPLOYEES
+
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAllEmployees()
         {
@@ -52,7 +58,10 @@ public class EmployeeController
                 HttpStatus.OK
         );
         }
-    // Build update employee REST API
+
+    /*--------------------GET ALL EMPLOYEES END---------------------*/
+
+    /*--------------------UPDATE EMPLOYEE START---------------------*/ // UPDATE EMPLOYEE
 
     @PutMapping("/{id}")
     public ResponseEntity<EmployeeDto> updateEmployee(
@@ -67,8 +76,9 @@ public class EmployeeController
         );
         }
 
-    // Build delete employee REST API
+    /*--------------------UPDATE EMPLOYEE END---------------------*/
 
+    /*--------------------DELETE EMPLOYEE START---------------------*/ // DELETE EMPLOYEE
     @DeleteMapping("/{id}")
     
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long id)
@@ -79,4 +89,6 @@ public class EmployeeController
                 HttpStatus.NO_CONTENT
         );
         }
+
+    /*--------------------UPDATE EMPLOYEE END---------------------*/
     }

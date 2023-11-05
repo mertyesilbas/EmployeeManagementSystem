@@ -1,21 +1,24 @@
 package com.example.emsbackend.controller;
 
 import com.example.emsbackend.dto.DepartmentDto;
-import com.example.emsbackend.dto.EmployeeDto;
-import com.example.emsbackend.entity.Department;
 import com.example.emsbackend.service.DepartmentService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/departments")
 public class DepartmentController
     {
     private DepartmentService departmentService;
 
+
+    /*--------------------GET ALL DEPARTMENTS START---------------------*/ //GET ALL DEPARTMENTS
     @GetMapping
     public ResponseEntity<List<DepartmentDto>> getAllDepartments()
         {
@@ -25,8 +28,11 @@ public class DepartmentController
                 HttpStatus.OK
         );
         }
+    /*--------------------GET ALL END---------------------*/
 
-    @GetMapping("id")
+
+    /*--------------------GET DEPARTMENT BY ID START---------------------*/ // GET DEPARTMENT BY ID
+    @GetMapping("/{id}")
     public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable("id") Long id)
         {
         DepartmentDto departmentDto = departmentService.getDepartmentById(id);
@@ -35,7 +41,9 @@ public class DepartmentController
                 HttpStatus.OK
         );
         }
+    /*--------------------GET BY ID END---------------------*/
 
+    /*--------------------CREATE DEPARTMENT START---------------------*/ // CREATE DEPARTMENT
     @PostMapping
     public ResponseEntity<DepartmentDto> createDepartment(@RequestBody DepartmentDto departmentDto)
         {
@@ -45,8 +53,10 @@ public class DepartmentController
                 HttpStatus.CREATED
         );
         }
+    /*--------------------CREATE DEPARTMENT END---------------------*/
 
-    @PutMapping("id")
+    /*--------------------UPDATE DEPARTMENT START---------------------*/ // UPDATE DEPARTMENT
+    @PutMapping("/{id}")
     public ResponseEntity<DepartmentDto> updateDepartment(
             @RequestBody DepartmentDto departmentDto,
             @PathVariable("id") Long id
@@ -54,11 +64,14 @@ public class DepartmentController
         {
         DepartmentDto departmentDtoUpdated = departmentService.updateDepartment(id, departmentDto);
         return new ResponseEntity<>(
-                departmentDto,
+                departmentDtoUpdated,
                 HttpStatus.OK
         );
         }
-    @DeleteMapping("id")
+    /*--------------------UPDATE DEPARTMENT END---------------------*/
+
+    /*--------------------DELETE DEPARTMENT START---------------------*/ // DELETE DEPARTMENT
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDepartment(@PathVariable("id") Long id){
         departmentService.deleteDepartment(id);
         return new ResponseEntity<>(
@@ -66,5 +79,6 @@ public class DepartmentController
                 HttpStatus.NO_CONTENT
         );
     }
+    /*--------------------DELETE DEPARTMENT END---------------------*/
     }
 
