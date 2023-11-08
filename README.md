@@ -13,5 +13,5 @@
 
 ## Appendix
 
-
+![folder-structure](./assets/img/folder-structure-img.png)
 
