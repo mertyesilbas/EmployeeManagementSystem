@@ -13,5 +13,7 @@
 
 ## Appendix
 
+**Projenin Klasör Yapısı**
+
 ![folder-structure](./assets/img/folder-structure-img.png)
 
